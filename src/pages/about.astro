@@ -1,5 +1,18 @@
 ---
+const pageTitle = "About Me";
 
+const identity = {
+	firstName: "Sarah",
+	country: "Canada",
+	occupation: "Technical Writer",
+	hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -9,16 +22,35 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-		<h1>About me</h1>
-    <h2>... and about the new Astro site!</h2>
-    <p>I am testing Astro setup with headless WP</p>
+		<a href="/">Home</a>
+		<a href="/about/">About</a>
+		<a href="/blog/">Blog</a>
+		<h1>{pageTitle}</h1>
+		<h2>... and about the new Astro site!</h2>
+		<p>Here are some random facts returned via JS</p>
+		<ul>
+			<li>Name: {identity.firstName}</li>
+			<li>Country of origin: {identity.country}</li>
+			<li>Job Title: {identity.occupation}</li>
+			{
+				identity.hobbies.length >= 2 && (
+					<li>
+						Hobbies {identity.hobbies[0]} and {identity.hobbies[1]}
+					</li>
+				)
+			}
+		</ul>
+		<p>Skills</p>
+		<ul>
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+		{happy && <p>I am happy to be learning Astro!</p>}
 
-    <p>Thanks to autosave in VS code it saves automatically and propagates immediately to the frontend</p>
+		{finished && <p>I finished this tutorial!</p>}
+
+		{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 	</body>
 </html>
