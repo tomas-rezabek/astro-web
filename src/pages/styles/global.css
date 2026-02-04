@@ -1,14 +1,20 @@
+@import url(https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900|space-grotesk:300,400,500,600,700);
+
+html, body {
+  height: 100%;
+}
+
 html {
   background-color: #f1f5f9;
-  font-family: sans-serif;
+  font-family: S
 }
 
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
   line-height: 1.5;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: bold;
 }
 
 * {
@@ -18,4 +24,56 @@ body {
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
+}
+
+a,
+p,
+h2,
+h3,
+h4 {
+  font-family: 'Inter', sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;     
+  margin: 5rem auto;
+  padding-inline: 1rem;
+  flex: 1;
+}
+
+.heroSekce {
+  width: 100%;
+  max-width: 1540px;
+  margin-inline: auto;
+  height: 740px;
+  border-radius: 32px;
+  background:
+    linear-gradient(
+      #8B5CF699,
+      #513690
+    ),
+    url("images/tvorba-webovych-stranek-pozadi.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroObsah {
+  text-align: center;
+  max-width: 640px;
+  transform: translateY(-33%);
+  color: white;
+}
+
+.hlavniNadpis {
+  font-size: 48px;
 }

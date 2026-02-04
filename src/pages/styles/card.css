@@ -1,0 +1,52 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card-item {
+  flex: 1 1 50%;
+  max-width: 500px;
+}
+
+.cardWrap {
+  background-color: #f7f7f7;
+  padding: 2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 16px;
+}
+.cardTitle {
+  display: flex;
+  align-items: center;
+}
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContent > * {
+  margin: 0;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardIcon {
+  width: 45px;             
+  height: 45px;
+  background-color: #8B5CF6;
+  color: white;
+
+  display: flex;           
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;       
+  flex-shrink: 0;         
+}
+
+
+

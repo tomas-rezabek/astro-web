@@ -1,0 +1,18 @@
+---
+const { title, iconName, iconSize, content } = Astro.props;
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
+import "../styles/card.css";
+---
+
+<div class="cardWrap card-item">
+	<div class="cardContent">
+		<div class="cardTitle">
+			<div class="cardIcon">
+				{iconName && <Icon name={iconName} size={iconSize} />}
+			</div>
+			<h2>{title}</h2>
+		</div>
+		<p class="cardDescription">{content}</p>
+	</div>
+</div>
