@@ -1,64 +1,12 @@
 ---
-import Header from "./components/Header.astro";
-import Card from "./components/Card.astro";
-import Footer from "./components/Footer.astro";
-import { Icon } from "astro-icon/components";
+import Hero from "./components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Vyhody from "./components/Vyhody.astro";
+const title = "Tvorba webových stránek, které odvedou většinu práce za Vás";
 ---
-
-<Header />
+<BaseLayout title={title}>
 <main>
-	<div class="heroSekce">
-		<div class="heroObsah">
-			<h1 class="hlavniNadpis">
-				Tvorba webových stránek, které odvedou většinu práce za Vás
-			</h1>
-		</div>
-	</div>
-	<div class="container">
-		<div class="cards">
-			<Card
-				title="Rychlost"
-				iconName="rychlost"
-				iconSize="24"
-				imgAlt="Rychlé webové stránky"
-				content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-			/>
-			<Card
-				title="Bezpečnost"
-				iconName="bezpecnost"
-				iconSize="24"
-				imgAlt="Rychlé webové stránky"
-				content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-			/>
-			<Card
-				title="Vzhled"
-				iconName="vzhled"
-				iconSize="24"
-				imgAlt="Rychlé webové stránky"
-				content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-			/>
-			<Card
-				title="Komunikace"
-				iconName="komunikace"
-				iconSize="24"
-				imgAlt="Rychlé webové stránky"
-				content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-			/>
-			<Card
-				title="SEO"
-				iconName="optimalizace-pro-vyhledavace"
-				iconSize="24"
-				imgAlt="Optimalizace pro vyhledávače"
-				content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-			/>
-			<Card
-				title="Jednoduchost"
-				iconName="jednoduchost"
-				iconSize="24"
-				imgAlt="Rychlé webové stránky"
-				content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-			/>
-		</div>
-	</div>
+<Hero title={title} />
+<Vyhody />
 </main>
-<Footer />
+</BaseLayout>
