@@ -1,12 +1,25 @@
 ---
-import Card from "./Card.astro";
+import Hodnoceni from "./Hodnoceni.astro";
 const { title } = Astro.props;
+import heroBg from "../../images/tvorba-webovych-stranek-pozadi.png";
 ---
 
-	<div class="heroSekce">
-		<div class="heroObsah">
-			<h1 class="hlavniNadpis">
-				{title}
-			</h1>
+<div class="heroSekce" style={`--hero-bg: url(${heroBg.src});`}>
+	<div class="heroObsah">
+		<h1 class="hlavniNadpis">
+			{title}
+		</h1>
+		<div class="heroContainer">
+			<p class="heroText center">
+				Vaše nové stránky budou rychlé, moderní a hlavně budou snadno prodávat.
+			</p>
+			<div class="heroTlacitka">
+				<a href="/konzultace-zdarma" class="konzultaceTlacitko"
+					>Konzultace zdarma</a
+				>
+				<a href="tel:+420737645533" class="telefonTlacitko">+420 737 645 533</a>
+			</div>
 		</div>
 	</div>
+</div>
+<Hodnoceni />

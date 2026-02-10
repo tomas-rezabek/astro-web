@@ -1,0 +1,20 @@
+---
+import { Icon } from "astro-icon/components";
+const iconName = "wordpress"; 
+---
+
+<div class="hodnoceniContainer">
+	<div class="hodnoceniContent">
+    <div class="hodnoceniIcon">
+      {iconName && <Icon name={iconName} size="48" />}
+    </div>
+		<p>
+			Stránky Vám poběží na redakčním systému WordPress, který používá více jak
+			<strong>450 000 000</strong> webů.
+		</p>
+		<div class="hodnoceniGoogle">
+			<p>Google hodnocení</p>
+			<span class="hodnoceniStars"> ★★★★⯨ </span>
+		</div>
+	</div>
+</div>

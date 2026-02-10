@@ -1,11 +1,26 @@
 ---
-import '../styles/navigation.css';
+import "../styles/navigation.css";
+import Image from "astro/components/Image.astro";
+import logo from "../../images/nav-logo-tomas-rezabek.png";
 ---
+
 <div id="main-menu" class="nav-links">
-  <a href="/">Domů</a>
-  <a href="/blog/">Portfolio</a>
-  <a href="/about/">Služby</a>
-  <a href="/about/">Reference</a>
-  <a href="/about/">Blog</a>
-  <a href="/about/">Kontaktujte mě</a>
+	<div class="logo">
+		<a href="/">
+			<Image
+				src={logo}
+				alt="Moje Logo"
+				width="112"
+				height="112"
+				loading="eager"
+				fetchpriority="high"
+			/>
+		</a>
+	</div>
+	<a href="/">Domů</a>
+	<a href="/about/">Služby</a>
+	<a href="/blog/">Portfolio</a>
+	<a href="/about/">Reference</a>
+	<a href="/blog/">Blog</a>
+	<a href="/about/">Kontaktujte mě</a>
 </div>

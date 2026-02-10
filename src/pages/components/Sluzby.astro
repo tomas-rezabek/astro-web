@@ -1,0 +1,39 @@
+---
+import Sluzba from "./Sluzba.astro";
+---
+
+<div class="container">
+	<div class="sluzbyContainer">
+		<h2 class="podNadpis center">Služby & Ceník</h2>
+		<div class="sluzbyContent">
+			<Sluzba
+				title="Správa služeb"
+				cena="od 490 Kč / měsíc"
+				iconName="rychlost"
+				iconSize="24"
+				imgAlt="Správa webových stránek"
+				content="Úpravy webu zdarma, zálohy, hosting webu, správa domény a e-mailové schránky."
+        odkaz="/sluzby/sprava-webovych-stranek"
+			/>
+			<Sluzba
+				favorite="Oblíbené"
+				title="Tvorba webu"
+				cena="od 14 990 Kč"
+				iconName="rychlost"
+				iconSize="24"
+				imgAlt="Tvorba webových stránek"
+				content="Úpravy webu zdarma, zálohy, hosting webu, správa domény a e-mailové schránky."
+        odkaz="/sluzby/tvorba-webovych-stranek"
+			/>
+			<Sluzba
+				title="Optimalizace"
+				cena="od 2 490 Kč"
+				iconName="rychlost"
+				iconSize="24"
+				imgAlt="Správa webových stránek"
+				content="Úpravy webu zdarma, zálohy, hosting webu, správa domény a e-mailové schránky."
+        odkaz="/sluzby/optimalizace-webovych-stranek"
+			/>
+		</div>
+	</div>
+</div>

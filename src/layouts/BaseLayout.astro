@@ -1,18 +1,21 @@
 ---
+import Image from "astro/components/Image.astro";
 import Header from "../pages/components/Header.astro";
 import Footer from "../pages/components/Footer.astro";
 
 import '../pages/styles/global.css';
 
-const { title } = Astro.props;
+const { title, classValue } = Astro.props;
 ---
 
 <body>
     <Header />
-    <slot />
+    <main class={classValue}>
+        <slot />
+    </main>
     <Footer />
     <script>
-        import "../pages/scripts/menu.js";
+        import "../pages/scripts/navbar.js";
     </script>
 </body>
 </html>

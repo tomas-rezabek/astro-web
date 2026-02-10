@@ -1,5 +1,6 @@
 .cards {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -14,14 +15,19 @@
   padding: 2rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 16px;
+  transition: all 0.25s ease;
 }
 .cardTitle {
   display: flex;
   align-items: center;
 }
-.cardContent {
+.card-item {
   display: flex;
   flex-direction: column;
+}
+
+.cardWrap:hover {
+  transform: scale(1.05);
 }
 
 .cardContent > * {
@@ -33,6 +39,11 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.cardDescription {
+  font-weight: 400;
+}
+
 
 .cardIcon {
   width: 45px;             

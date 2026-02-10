@@ -1,0 +1,27 @@
+---
+const { title, iconName, iconSize, content, favorite, cena, odkaz } =
+	Astro.props;
+import { Icon } from "astro-icon/components";
+import "../styles/sluzba.css";
+---
+
+<div class="sluzbaWrap sluzba-item">
+	<a href={odkaz}>
+		<div class="sluzbaContent">
+			{favorite && <span class="favoriteBadge">{favorite}</span>}
+			<div class="sluzbaTitle">
+				<div class="sluzbaIcon">
+					{iconName && <Icon name={iconName} size={iconSize} />}
+				</div>
+				<div class="sluzbaPodrobnosti">
+					<h3 class="sluzbaH">{title}</h3>
+					<p class="cenaSluzby">{cena}</p>
+				</div>
+			</div>
+			<p class="sluzbaDescription">{content}</p>
+			<a href={odkaz} class="podrobnosti">
+				{iconName && <Icon name={iconName} size={iconSize} />}
+			</a>
+		</div>
+	</a>
+</div>

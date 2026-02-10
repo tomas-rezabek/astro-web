@@ -1,0 +1,39 @@
+---
+import Image from "astro/components/Image.astro";
+import PortfolioImage from "../../images/portfolio-image.png";
+---
+
+<div class="container">
+	<div class="portfolioContainer">
+		<h2 class="podNadpis center">Portfolio</h2>
+		<div class="portfolioImages">
+			<div class="portfolioImage">
+				<Image
+					src={PortfolioImage}
+					alt="Moje Logo"
+					width="333"
+					loading="lazy"
+				/>
+				<p class="center">holdingtex.cz</p>
+			</div>
+			<div class="portfolioImage">
+				<Image
+					src={PortfolioImage}
+					alt="Moje Logo"
+					width="333"
+					loading="lazy"
+				/>
+				<p class="center">holdingtex.cz</p>
+			</div>
+			<div class="portfolioImage">
+				<Image
+					src={PortfolioImage}
+					alt="Moje Logo"
+					width="333"
+					loading="lazy"
+				/>
+				<p class="center">holdingtex.cz</p>
+			</div>
+		</div>
+	</div>
+</div>
