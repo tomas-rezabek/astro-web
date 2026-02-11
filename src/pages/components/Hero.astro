@@ -1,24 +1,113 @@
 ---
 import Hodnoceni from "./Hodnoceni.astro";
+import Image from "astro/components/Image.astro";
 const { title } = Astro.props;
 import heroBg from "../../images/tvorba-webovych-stranek-pozadi.png";
+import responzivni from "../../images/responzivni-stranky.png";
 ---
+
+<style>
+	.hlavniNadpis {
+		font-size: 2.8rem;
+	}
+	.heroSekce {
+		width: 100%;
+		max-width: 1540px;
+		margin-inline: auto;
+		height: 720px;
+		border-radius: 32px;
+		background: linear-gradient(#8b5cf699, #513690), var(--hero-bg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		align-items: center;
+	}
+
+	.heroObsah {
+		display: flex;
+		max-width: 1140px;
+		margin: auto;
+		color: var(--bila);
+	}
+
+	.heroLeft {
+	}
+
+	.heroRight {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.heroRight img {
+		rotate: 20deg;
+	}
+
+	.heroContainer > * {
+		margin: 3rem 0;
+	}
+
+	.heroText {
+		text-align: left;
+		font-size: 1.3rem;
+		font-weight: 300;
+		max-width: 480px;
+	}
+
+	.heroTlacitka a {
+		text-decoration: none;
+		font-size: 1.25rem;
+		padding: 1rem 3rem;
+		border-radius: 32px;
+		border: 1px solid --bila;
+		transition: all 0.25s ease;
+	}
+
+	.heroTlacitka a:hover {
+		font-size: 1.3rem;
+	}
+
+	.konzultaceTlacitko {
+		background-color: var(--bila);
+		color: var(--modra);
+		margin-right: 2rem;
+	}
+
+	.telefonTlacitko {
+		background-color: var(--fialova);
+		color: var(--bila);
+	}
+</style>
 
 <div class="heroSekce" style={`--hero-bg: url(${heroBg.src});`}>
 	<div class="heroObsah">
-		<h1 class="hlavniNadpis">
-			{title}
-		</h1>
-		<div class="heroContainer">
-			<p class="heroText center">
-				Vaše nové stránky budou rychlé, moderní a hlavně budou snadno prodávat.
-			</p>
-			<div class="heroTlacitka">
-				<a href="/konzultace-zdarma" class="konzultaceTlacitko"
-					>Konzultace zdarma</a
-				>
-				<a href="tel:+420737645533" class="telefonTlacitko">+420 737 645 533</a>
+		<div class="heroLeft">
+			<h1 class="hlavniNadpis">
+				{title}
+			</h1>
+			<div class="heroContainer">
+				<p class="heroText center">
+					Rychlý a moderní web, který pracuje za Vás 24/7 a promění návštěvníky
+					ve skutečné poptávky.
+				</p>
+				<div class="heroTlacitka">
+					<a href="/konzultace-zdarma" class="konzultaceTlacitko"
+						>Konzultace zdarma</a
+					>
+					<a href="tel:+420737645533" class="telefonTlacitko"
+						>+420 737 645 533</a
+					>
+				</div>
 			</div>
+		</div>
+		<div class="heroRight">
+			<Image
+				src={responzivni}
+				alt="Responzivní webové stránky"
+				width="330"
+				loading="eager"
+				fetchpriority="high"
+			/>
 		</div>
 	</div>
 </div>
