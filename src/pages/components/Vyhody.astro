@@ -2,60 +2,68 @@
 import Card from "./Card.astro";
 ---
 
+<style>
+	.cards {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+</style>
 <div class="container">
-  <div class="textContent">
-    <h2 class="podNadpis center">
-      Pomáhám firmám a začínajícím podnikatelům zviditelnit se na internetu
-    </h2>
-    <p class="center defaultText">
-      Zviditelním Vás na internetu a vy zaujmete nové klienty. Stránky jsou plně
-      responzivní pro všechna zařízení a nabízí jednoduchou administraci, kde si
-      můžete obsah snadno upravovat.
-    </p>
-  </div>
+	<div class="textContent">
+		<h2 class="podNadpis center">
+			Pomáhám firmám a začínajícím podnikatelům zviditelnit se na internetu
+		</h2>
+		<p class="center defaultText">
+			Zviditelním Vás na internetu a vy zaujmete nové klienty. Stránky jsou plně
+			responzivní pro všechna zařízení a nabízí jednoduchou administraci, kde si
+			můžete obsah snadno upravovat.
+		</p>
+	</div>
 
-  <div class="cards">
-    <Card
-      title="Rychlost"
-      iconName="rychlost"
-      iconSize="24"
-      imgAlt="Rychlé webové stránky"
-      content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-    />
-    <Card
-      title="Bezpečnost"
-      iconName="bezpecnost"
-      iconSize="24"
-      imgAlt="Rychlé webové stránky"
-      content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-    />
-    <Card
-      title="Vzhled"
-      iconName="vzhled"
-      iconSize="24"
-      imgAlt="Rychlé webové stránky"
-      content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-    />
-    <Card
-      title="Komunikace"
-      iconName="komunikace"
-      iconSize="24"
-      imgAlt="Rychlé webové stránky"
-      content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-    />
-    <Card
-      title="SEO"
-      iconName="optimalizace-pro-vyhledavace"
-      iconSize="24"
-      imgAlt="Optimalizace pro vyhledávače"
-      content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-    />
-    <Card
-      title="Jednoduchost"
-      iconName="jednoduchost"
-      iconSize="24"
-      imgAlt="Rychlé webové stránky"
-      content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
-    />
-  </div>
+	<div class="cards">
+		<Card
+			title="Rychlost"
+			iconName="rychlost"
+			iconSize="24"
+			imgAlt="Rychlé webové stránky"
+			content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
+		/>
+		<Card
+			title="Bezpečnost"
+			iconName="bezpecnost"
+			iconSize="24"
+			imgAlt="Rychlé webové stránky"
+			content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
+		/>
+		<Card
+			title="Vzhled"
+			iconName="vzhled"
+			iconSize="24"
+			imgAlt="Rychlé webové stránky"
+			content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
+		/>
+		<Card
+			title="Komunikace"
+			iconName="komunikace"
+			iconSize="24"
+			imgAlt="Rychlé webové stránky"
+			content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
+		/>
+		<Card
+			title="SEO"
+			iconName="optimalizace-pro-vyhledavace"
+			iconSize="24"
+			imgAlt="Optimalizace pro vyhledávače"
+			content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
+		/>
+		<Card
+			title="Jednoduchost"
+			iconName="jednoduchost"
+			iconSize="24"
+			imgAlt="Rychlé webové stránky"
+			content="Stránky se načítají velkou rychlostí a nemusíte čekat na dlouhé načítání obsahu."
+		/>
+	</div>
 </div>

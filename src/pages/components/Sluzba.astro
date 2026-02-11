@@ -2,8 +2,88 @@
 const { title, iconName, iconSize, content, favorite, cena, odkaz } =
 	Astro.props;
 import { Icon } from "astro-icon/components";
-import "../styles/sluzba.css";
 ---
+
+<style>
+	a {
+		text-decoration: none;
+		color: var(--modra);
+	}
+	.sluzbaWrap {
+		max-width: 333px;
+		background-color: #8b5cf633;
+		padding: 2rem;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		border-radius: 16px;
+		transition: all 0.25s ease;
+	}
+	.sluzbaWrap:hover {
+		transform: scale(1.05);
+	}
+
+	.sluzbaContent > * {
+		margin: 0;
+	}
+
+	.sluzbaPodrobnosti > * {
+		margin: 0;
+	}
+
+	.cenaSluzby {
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	.sluzbaTitle {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.sluzbaH {
+		font-size: 1.5rem;
+	}
+
+	.sluzbaDescription {
+		font-weight: 400;
+	}
+
+	.sluzbaIcon {
+		width: 45px;
+		height: 45px;
+		background-color: #8b5cf6;
+		color: white;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	.favoriteBadge {
+		position: absolute;
+		font-size: 0.8rem;
+		margin-top: -1.5rem;
+		margin-left: 185px;
+		border-radius: 32px;
+		background-color: #513690;
+		color: var(--bila);
+		padding: 0.25rem 1rem;
+		text-transform: uppercase;
+	}
+
+	.podrobnosti {
+		margin-left: 200px;
+		border-radius: 32px;
+		background-color: var(--fialova);
+		color: var(--bila);
+		padding: 0.5rem;
+		display: flex;
+		justify-content: center;
+	}
+</style>
 
 <div class="sluzbaWrap sluzba-item">
 	<a href={odkaz}>

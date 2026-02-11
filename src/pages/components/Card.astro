@@ -1,9 +1,62 @@
 ---
 const { title, iconName, iconSize, content } = Astro.props;
 import { Icon } from "astro-icon/components";
-import "../styles/card.css";
 ---
 
+<style>
+	.card-item {
+		flex: 1 1 50%;
+		max-width: 500px;
+	}
+
+	.cardWrap {
+		background-color: #f7f7f7;
+		padding: 2rem;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		border-radius: 16px;
+		transition: all 0.25s ease;
+	}
+	.cardTitle {
+		display: flex;
+		align-items: center;
+	}
+	.card-item {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cardWrap:hover {
+		transform: scale(1.05);
+	}
+
+	.cardContent > * {
+		margin: 0;
+	}
+
+	.cardTitle {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.cardDescription {
+		font-weight: 400;
+	}
+
+	.cardIcon {
+		width: 45px;
+		height: 45px;
+		background-color: #8b5cf6;
+		color: white;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+</style>
 <div class="cardWrap card-item">
 	<div class="cardContent">
 		<div class="cardTitle">

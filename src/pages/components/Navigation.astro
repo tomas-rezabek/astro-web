@@ -1,9 +1,45 @@
 ---
-import "../styles/navigation.css";
 import Image from "astro/components/Image.astro";
 import logo from "../../images/nav-logo-tomas-rezabek.png";
 ---
 
+<style>
+	.nav-links {
+		display: flex;
+		height: 85px;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		background-color: #0b1220;
+		border-radius: 32px;
+	}
+
+	.nav-links a {
+		text-decoration: none;
+		font-size: 1.2rem;
+		font-weight: 400;
+		color: white;
+		margin: 0 2rem;
+		transition: all 0.25s ease;
+	}
+
+	.nav-links a:hover {
+		transform: scale(1.1);
+		font-weight: 600;
+	}
+
+	.logo {
+		position: fixed;
+		left: -50px;
+		top: -14px;
+		transition: all 0.25s ease;
+	}
+
+	.logo:hover {
+		transform: scale(1.2);
+		cursor: pointer;
+	}
+</style>
 <div id="main-menu" class="nav-links">
 	<div class="logo">
 		<a href="/">
