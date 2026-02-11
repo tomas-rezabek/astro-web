@@ -8,7 +8,15 @@ import Sluzba from "./Sluzba.astro";
 		flex-wrap: wrap;
 		flex-direction: row;
 		justify-content: center;
-		gap: 2rem;
+		gap: 2.8rem;
+	}
+	.bigger {
+		transform: scale(1.1);
+	}
+	@media only screen and (max-width: 768px) {
+		.bigger {
+			transform: scale(1.05);
+		}
 	}
 </style>
 <div class="container">
@@ -24,16 +32,18 @@ import Sluzba from "./Sluzba.astro";
 				content="Úpravy webu zdarma, zálohy, hosting webu, správa domény a e-mailové schránky."
 				odkaz="/sluzby/sprava-webovych-stranek"
 			/>
-			<Sluzba
-				favorite="Oblíbené"
-				title="Tvorba webu"
-				cena="od 14 990 Kč"
-				iconName="rychlost"
-				iconSize="24"
-				imgAlt="Tvorba webových stránek"
-				content="Návrh designu webu a jeho následný vývoj dle zpětné vazby od klienta."
-				odkaz="/sluzby/tvorba-webovych-stranek"
-			/>
+			<div class="bigger">
+				<Sluzba
+					favorite="Oblíbené"
+					title="Tvorba webu"
+					cena="od 14 990 Kč"
+					iconName="rychlost"
+					iconSize="24"
+					imgAlt="Tvorba webových stránek"
+					content="Návrh designu webu a jeho následný vývoj dle zpětné vazby od klienta."
+					odkaz="/sluzby/tvorba-webovych-stranek"
+				/>
+			</div>
 			<Sluzba
 				title="Optimalizace"
 				cena="od 2 490 Kč"

@@ -155,3 +155,11 @@ path {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .podNadpis {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}

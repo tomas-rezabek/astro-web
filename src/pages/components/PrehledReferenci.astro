@@ -1,0 +1,84 @@
+---
+import Reference from "./Reference.astro";
+import {
+	Swiper,
+	SwiperWrapper,
+	SwiperSlide,
+	SwiperPagination,
+} from "astro-swiper";
+---
+
+<style>
+	:global(.swiper) {
+		--swiper-theme-color: var(--fialova);
+	}
+	.referenceContent {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2rem;
+	}
+</style>
+<div class="container">
+	<h2 class="podNadpis center">Reference</h2>
+	<Swiper
+		options={{
+			// check options at https://swiperjs.com/swiper-api
+			autoplay: true,
+			spaceBetween: 50,
+			slidesPerView: 2,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			loop: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        }
+      }
+		}}
+	>
+		<SwiperWrapper>
+			<!-- Slides -->
+			<SwiperSlide>
+				<Reference
+					jmeno="Monika H."
+					recenze="Pana Řežábka jsme oslovili v rámci našich webových stránek na developerský projekt a se spoluprací jsme byli velmi spokojeni. Rychlost, skvělá komunikace, součinnost. Celkově velmi hezká práce. Doporučujeme."
+				/>
+			</SwiperSlide>
+			<SwiperSlide>
+				<Reference
+					jmeno="Michaela P."
+					recenze="Tvorba nového webu byla ve spolupráci s panem Řežábkem příjemná, rychlá a vysoce profesionální. S péčí a značnou pozorností se věnoval i těm nejmenším detailům a přinášel cenné rady a nápady."
+				/>
+			</SwiperSlide>
+			<SwiperSlide>
+				<Reference
+					jmeno="Marian P."
+					recenze="Pana Řežábka doporučuji na 100%. Upravil nám stránky přesně podle našich představ, dokonce představu splnil nad očekávání. Moc milé jednání, ochota vyřešit jakýkoli problém, skvělá spolupráce! Doporučuji a i nadále budu rád využívat jeho služby."
+				/>
+			</SwiperSlide>
+			<SwiperSlide>
+				<Reference
+					jmeno="Václav P."
+					recenze="Pan Řežábek je profesionál a velice dobře máme nastavenou spolupráci. Cením si jeho spolehlivosti a pružného jednání. Václav Pirnus, Česká Lví pojišťovací s.r.o., Brno."
+				/>
+			</SwiperSlide>
+			<SwiperSlide>
+				<Reference
+					jmeno="Jan V."
+					recenze="Od pana Řežábka mám stánky a také mi zajišťuje jejich provoz. Musím říct, že s lepšími službami jsem se nesetkal. Jakékoli změny, které jsem chtěl provést, udělal pan Řežábek na počkání. Skvělá spolupráce i komunikace. Vřele doporučuji."
+				/>
+			</SwiperSlide>
+			<SwiperSlide>
+				<Reference
+					jmeno="Lucie K."
+					recenze="Skvělé vytvořené webové stránky, přesně podle mých představ. Rychlá komunikace a celkově výborná spolupráce s Tomášem. Můžu jen doporučit."
+				/>
+			</SwiperSlide>
+		</SwiperWrapper>
+		<SwiperPagination />
+	</Swiper>
+</div>

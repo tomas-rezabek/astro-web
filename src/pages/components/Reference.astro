@@ -1,0 +1,74 @@
+---
+const { jmeno, recenze, iconName } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+<style>
+	a {
+		text-decoration: none;
+		color: var(--modra);
+	}
+	.referenceWrap {
+		background-color: var(--bila);
+		height: 285px;
+		padding: 2rem;
+		border-radius: 16px;
+		transition: all 0.25s ease;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.referenceWrap {
+			height: 360px;
+		}
+	}
+
+	.referenceContent > * {
+		margin: 1rem auto;
+	}
+
+	.referencePodrobnosti > * {
+		margin: 0;
+	}
+
+	.referenceTitle {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.referenceH {
+		font-size: 1.5rem;
+	}
+
+	.referenceDescription {
+		font-weight: 400;
+	}
+
+	.referenceIcon {
+		width: 45px;
+		height: 45px;
+		background-color: #8b5cf6;
+		color: white;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+</style>
+<div class="referenceWrap reference-item">
+	<div class="referenceContent">
+		<div class="referenceTitle">
+			<!-- <div class="referenceIcon">
+				{iconName && <Icon name={iconName} size="32" />}
+			</div> -->
+			<div class="referencePodrobnosti">
+				<h3 class="referenceH">{jmeno}</h3>
+				<span class="hodnoceniStars">★★★★★</span>
+			</div>
+		</div>
+		<p class="referenceDescription">{recenze}</p>
+	</div>
+</div>

@@ -11,6 +11,8 @@
   "dependencies": {
     "astro": "^5.17.1",
     "astro-icon": "^1.1.5",
-    "astro-image": "^0.0.7"
+    "astro-image": "^0.0.7",
+    "astro-swiper": "^1.4.0",
+    "swiper": "^12.1.0"
   }
 }
