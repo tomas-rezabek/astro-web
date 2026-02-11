@@ -3,36 +3,56 @@ import Image from "astro/components/Image.astro";
 import PortfolioImage from "../../images/portfolio-image.png";
 ---
 
+<style>
+	.portfolioImage {
+		transition: all 0.25s ease;
+	}
+	.portfolioImage:hover {
+		transform: scale(1.15);
+		cursor: pointer;
+	}
+	.portfolioImage a {
+		text-decoration: none;
+		color: var(--modra);
+	}
+</style>
+
 <div class="container">
 	<div class="portfolioContainer">
 		<h2 class="podNadpis center">Portfolio</h2>
 		<div class="portfolioImages">
 			<div class="portfolioImage">
-				<Image
-					src={PortfolioImage}
-					alt="Moje Logo"
-					width="333"
-					loading="lazy"
-				/>
-				<p class="center">holdingtex.cz</p>
+				<a href="https://www.holdingtex.cz/" target="_blank">
+					<Image
+						src={PortfolioImage}
+						alt="Moje Logo"
+						width="333"
+						loading="lazy"
+					/>
+					<p class="center">holdingtex.cz</p>
+				</a>
 			</div>
 			<div class="portfolioImage">
-				<Image
-					src={PortfolioImage}
-					alt="Moje Logo"
-					width="333"
-					loading="lazy"
-				/>
-				<p class="center">holdingtex.cz</p>
+				<a href="https://www.holdingtex.cz/" target="_blank">
+					<Image
+						src={PortfolioImage}
+						alt="Moje Logo"
+						width="333"
+						loading="lazy"
+					/>
+					<p class="center">holdingtex.cz</p>
+				</a>
 			</div>
 			<div class="portfolioImage">
-				<Image
-					src={PortfolioImage}
-					alt="Moje Logo"
-					width="333"
-					loading="lazy"
-				/>
-				<p class="center">holdingtex.cz</p>
+				<a href="https://www.holdingtex.cz/" target="_blank">
+					<Image
+						src={PortfolioImage}
+						alt="Moje Logo"
+						width="333"
+						loading="lazy"
+					/>
+					<p class="center">holdingtex.cz</p>
+				</a>
 			</div>
 		</div>
 	</div>
