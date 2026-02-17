@@ -1,5 +1,5 @@
 ---
-const { title, iconName, iconSize, content, favorite, cena, odkaz } =
+const { title, iconName, iconSize, content, favorite, cena, backgroundColor, odkaz } =
 	Astro.props;
 import { Icon } from "astro-icon/components";
 ---
@@ -11,7 +11,6 @@ import { Icon } from "astro-icon/components";
 	}
 	.sluzbaWrap {
 		max-width: 333px;
-		background-color: #8b5cf633;
 		padding: 2rem;
 		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 		border-radius: 16px;
@@ -85,7 +84,7 @@ import { Icon } from "astro-icon/components";
 	}
 </style>
 
-<div class="sluzbaWrap sluzba-item">
+<div class="sluzbaWrap sluzba-item" style={`background-color: ${backgroundColor};`}>
 	<a href={odkaz}>
 		<div class="sluzbaContent">
 			{favorite && <span class="favoriteBadge">{favorite}</span>}
