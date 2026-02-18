@@ -1,0 +1,23 @@
+---
+import Hero from "./components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../layouts/Container.astro";
+//
+const title = "Správa webových stránek";
+const popis =
+	"Rychlý a moderní web, který pracuje za Vás 24/7 a promění návštěvníky ve skutečné poptávky.";
+import responzivni from "../images/responzivni-stranky.png";
+const imageAlt = "Správa webových stránek";
+---
+
+<BaseLayout title={title}>
+	<Hero
+		hlavniNadpis={title}
+		popis={popis}
+		textClass="heroLong"
+		textClass="heroLong"
+		responzivni={responzivni}
+		imageAlt={imageAlt}
+		displayStatus="none"
+	/>
+</BaseLayout>

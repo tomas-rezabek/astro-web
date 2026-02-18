@@ -1,6 +1,7 @@
 ---
 import Image from "astro/components/Image.astro";
 import logo from "../../images/nav-logo-tomas-rezabek.png";
+import MegaMenu from "./MegaMenu.astro";
 ---
 
 <style>
@@ -14,11 +15,10 @@ import logo from "../../images/nav-logo-tomas-rezabek.png";
 		align-items: center;
 		padding: 1rem;
 		background-color: #0b1220;
-		border-radius: 32px;
+		border-radius: var(--default-radius);
 	}
 
 	.nav-links a {
-		text-decoration: none;
 		font-size: 1.2rem;
 		font-weight: 400;
 		color: white;
@@ -27,8 +27,7 @@ import logo from "../../images/nav-logo-tomas-rezabek.png";
 	}
 
 	.nav-links a:hover {
-		transform: scale(1.1);
-		font-weight: 600;
+		color: var(--fialova);
 	}
 
 	.logo {
@@ -57,9 +56,9 @@ import logo from "../../images/nav-logo-tomas-rezabek.png";
 		</a>
 	</div>
 	<a href="/">Domů</a>
-	<a href="/blog/">Portfolio</a>
-	<a href="/sluzby/">Služby<i class="fas fa-chevron-down"></i></a>
-	<a href="/reference/">Reference</a>
+	<a href="/#portfolio/">Portfolio</a>
+	<MegaMenu />
+	<a href="/#reference">Reference</a>
 	<a href="/blog/">Blog</a>
-	<a href="/about/">Kontaktujte mě</a>
+	<a href="/kontakt/">Kontaktujte mě</a>
 </div>

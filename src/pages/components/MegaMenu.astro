@@ -1,0 +1,189 @@
+---
+import "../../pages/styles/global.css";
+import { Icon } from "astro-icon/components";
+const { iconName } = Astro.props;
+const tags = [
+	"Hosting",
+	"WordPress",
+	"SEO",
+	"Domény",
+	"E-maily",
+	"Zálohy",
+	"SSL",
+];
+---
+
+<style>
+  h3 {
+    margin: 0;
+  }
+	#dropdown-link {
+		text-decoration: none;
+		font-size: 1.2rem;
+		font-weight: 400;
+		color: white;
+		margin: 0 2rem;
+		display: inline-block;
+		transform-origin: center;
+	}
+	#dropdown-link:hover {
+		transition: all 0.25s ease;
+		color: var(--fialova);
+	}
+	.megamenu-container {
+		width: min(1140px, calc(100vw - 2rem));
+		/* background-color: red; */
+		z-index: 99;
+		position: absolute;
+		opacity: 0;
+		left: 41%;
+		transform: translate(-41%);
+		visibility: hidden;
+		pointer-events: none;
+		padding: 3rem;
+		transition:
+			opacity 250ms ease,
+			transform 250ms ease,
+			visibility linear 250ms;
+	}
+	.megamenu-content {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--bila);
+		/* background: linear-gradient(
+			340deg,
+			rgba(11, 18, 32, 1) 0%,
+			rgba(139, 92, 246, 1) 100%
+		); */
+		border-radius: var(--default-radius);
+		padding: 2rem;
+		pointer-events: auto;
+		transition: opacity 150ms ease;
+	}
+	.megamenu-content::before {
+		content: "";
+		position: absolute;
+		top: -10px; /* moves it above the box */
+		left: 41%; /* center it */
+		transform: translateX(-41%);
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid var(--modra); /* match top color of menu */
+	}
+	.megamenu-row {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 25px;
+		row-gap: 0;
+		width: 100%;
+	}
+	.megamenu-column {
+		background-color: #513690;
+		border-radius: 16px;
+		padding: 0.15rem 3.6rem;
+		margin: 1rem 0;
+		cursor: pointer;
+	}
+
+	.megamenu-column:hover {
+		background-color: var(--modra);
+	}
+
+	.dropdown {
+		position: relative;
+		overflow: visible;
+	}
+	#dropdown-link:hover + .megamenu-container,
+	.megamenu-container:hover {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	.megamenu-tags {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 25px;
+	}
+	.megamenu-tags span {
+		background-color: #8b5cf6;
+		border-radius: 100px;
+		color: var(--bila);
+		padding: 0.25rem 1rem;
+		white-space: nowrap;
+	}
+	.megamenu-icon {
+		width: 45px;
+		height: 45px;
+		background-color: #8b5cf6;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+	.megamenu-title {
+		margin: 0;
+		font-size: 1.5rem;
+		color: var(--modra);
+	}
+	.megamenu-desc {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+	.megamenu-row a {
+		color: var(--bila);
+		margin: 0;
+	}
+	/* .megamenu-column a:hover {
+		color: var(--modra);
+	} */
+</style>
+
+<div class="dropdown">
+	<a href="/#" id="dropdown-link">Služby<i class="fas fa-chevron-down"></i></a>
+	<div class="megamenu-container">
+		<div class="megamenu-content">
+			<div class="megamenu-title">
+				<h3>Přehled služeb</h3>
+				<p class="megamenu-desc">
+					Komplexní služby v oblasti správy webu, tvorby webových stránek a
+					optimalizace webu pro vyhledávače.
+				</p>
+			</div>
+			<div class="megamenu-row">
+				<a href="/tvorba-webovych-stranek">
+					<div class="megamenu-column">
+						<h4>Tvorba webu</h4>
+					</div>
+				</a>
+				<a href="/sprava-webovych-stranek">
+					<div class="megamenu-column">
+						<!-- <div class="megamenu-icon">
+							<Icon name="rychlost" size="32" />
+						</div> -->
+
+						<h4>Správa služeb</h4>
+					</div>
+				</a>
+				<a href="/optimalizace-webovych-stranek">
+					<div class="megamenu-column">
+						<h4>Optimalizace webu</h4>
+					</div>
+				</a>
+			</div>
+			<div class="megamenu-row">
+				<div class="megamenu-tags">
+					{tags.map((tag) => <span>{tag}</span>)}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

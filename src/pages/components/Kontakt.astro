@@ -1,0 +1,52 @@
+---
+import KontaktniFormular from "./KontaktniFormular.astro";
+
+
+---
+
+<style>
+  h3 {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+	.contactRow {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	.contactColumn {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 100%;
+		flex: 1;
+		justify-content: center;
+		align-items: center;
+	}
+  .contactRight {
+    width: 100%;
+  }
+</style>
+	<h2 class="podNadpis center">Kontakt</h2>
+<div class="contactForm">
+	<div class="contactRow">
+		<div class="contactColumn">
+			<div class="contactLeft">
+				<h3>Neváhejte mě kontaktovat</h3>
+				<p class="defaultText">
+					Máte-li dotaz na služby, přání nebo připomínku, kontaktuje mě, prosím,
+					pomocí formuláře, nebo na telefonním čísle.
+				</p>
+				<p class="defaultText" style="margin-top:2rem">
+					Nezávaznou konzultaci s doporučením vhodného řešení Vám rád poskytnu
+					zdarma.
+				</p>
+			</div>
+		</div>
+		<div class="contactColumn">
+			<div class="contactRight">
+        <KontaktniFormular />
+      </div>
+		</div>
+	</div>
+</div>

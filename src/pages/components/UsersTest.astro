@@ -1,0 +1,36 @@
+---
+interface User {
+	id: number;
+	name: string;
+}
+interface Post {
+	id: number;
+	title: string;
+}
+const userResponse = await fetch("https://jsonplaceholder.typicode.com/users");
+const users = (await userResponse.json()) as User[];
+
+const postResponse = await fetch("https://jsonplaceholder.typicode.com/posts");
+const posts = (await postResponse.json()) as Post[];
+
+import Card from "./Card.astro";
+---
+
+<style>
+	.usersList {
+		justify-content: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+</style>
+
+<div class="usersList">
+	{
+		posts.map((post) => (
+			<div class="userWrap">
+				<Card title={post.title} />
+			</div>
+		))
+	}
+</div>

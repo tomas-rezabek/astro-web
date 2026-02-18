@@ -1,9 +1,8 @@
 ---
 import Hodnoceni from "./Hodnoceni.astro";
 import Image from "astro/components/Image.astro";
-const { title } = Astro.props;
+const { hlavniNadpis, popis, responzivni, displayStatus, imageAlt, textClass } = Astro.props;
 import heroBg from "../../images/tvorba-webovych-stranek-pozadi.png";
-import responzivni from "../../images/responzivni-stranky.png";
 ---
 
 <style>
@@ -25,17 +24,21 @@ import responzivni from "../../images/responzivni-stranky.png";
 
 	.heroObsah {
 		display: flex;
-		max-width: 1140px;
+		width: 1140px;
 		margin: auto;
 		color: var(--bila);
 	}
 
 	.heroLeft {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: left;
 	}
 
 	.heroRight {
 		display: flex;
-		justify-content: center;
+		justify-content: left;
 		align-items: center;
 	}
 
@@ -43,15 +46,21 @@ import responzivni from "../../images/responzivni-stranky.png";
 		rotate: 20deg;
 	}
 
-	.heroContainer > * {
-		margin: 3rem 0;
-	}
-
 	.heroText {
 		text-align: left;
 		font-size: 1.3rem;
 		font-weight: 300;
 		max-width: 480px;
+	}
+
+	.heroLong {
+		text-align: left;
+		font-size: 1.3rem;
+		font-weight: 300;
+	}
+
+	.heroTlacitka {
+		margin-top: 3rem;
 	}
 
 	.heroTlacitka a {
@@ -83,27 +92,28 @@ import responzivni from "../../images/responzivni-stranky.png";
 	<div class="heroObsah">
 		<div class="heroLeft">
 			<h1 class="hlavniNadpis">
-				{title}
+				{hlavniNadpis}
 			</h1>
 			<div class="heroContainer">
-				<p class="heroText center">
-					Rychlý a moderní web, který pracuje za Vás 24/7 a promění návštěvníky
-					ve skutečné poptávky.
+				<p class={textClass}>
+					{popis}
 				</p>
 				<div class="heroTlacitka">
 					<a href="/konzultace-zdarma" class="konzultaceTlacitko"
 						>Konzultace zdarma</a
 					>
-					<a href="tel:+420737645533" class="telefonTlacitko"
-						>+420 737 645 533</a
+					<a
+						href="tel:+420737645533"
+						class="telefonTlacitko"
+						style={`display: ${displayStatus};`}>+420 737 645 533</a
 					>
 				</div>
 			</div>
 		</div>
-		<div class="heroRight">
+		<div class="heroRight" style={`display: ${displayStatus};`}>
 			<Image
 				src={responzivni}
-				alt="Responzivní webové stránky"
+				alt={imageAlt}
 				width="330"
 				loading="eager"
 				fetchpriority="high"

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Container from "./Container.astro";
+const { frontmatter } = Astro.props;
+---
+
+<style>
+	.blogContainer {
+		padding: 5rem 0;
+	}
+</style>
+<BaseLayout title={frontmatter.title}>
+	<Container>
+		<div class="blogContainer">
+			<h1>{frontmatter.title}</h1>
+			<p>Napsal {frontmatter.author}</p>
+			<slot />
+		</div>
+	</Container>
+</BaseLayout>

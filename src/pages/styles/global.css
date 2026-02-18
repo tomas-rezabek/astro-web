@@ -1,6 +1,7 @@
 @import url(https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900|space-grotesk:300,400,500,600,700);
 
 :root {
+  --default-radius: 32px;
   --modra: #0B1220;
   --bila: #fff;
   --fialova: #8B5CF6;
@@ -14,7 +15,7 @@ html, body {
 
 html {
   background-color: var(--pozadi);
-  font-family: S
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
@@ -25,20 +26,26 @@ body {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
 }
 
 h1 {
   margin: 1rem 0;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 
 a,
 p,
 h2,
 h3,
-h4 {
+h4,
+input,
+textarea {
   font-family: 'Inter', sans-serif;
 }
 
@@ -60,6 +67,14 @@ h4 {
   width: 100%;
   max-width: 1140px;     
   margin: 5rem auto;
+  padding-inline: 1rem;
+  flex: 1;
+}
+
+.pageContainer {
+  width: 100%;
+  max-width: 1140px;     
+  margin: 10rem auto;
   padding-inline: 1rem;
   flex: 1;
 }
@@ -92,18 +107,19 @@ h4 {
 
 .center {
   text-align: center;
+  margin: auto;
 }
 
 .podNadpis {
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 2.5rem 0;
 }
 
 .defaultText {
   font-size: 1rem;
   font-weight: 400;
   max-width: 725px;
-  margin: auto;
 }
 
 .textContent {

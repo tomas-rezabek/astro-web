@@ -1,20 +1,49 @@
 ---
 import Hero from "./components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../layouts/Container.astro";
 import Vyhody from "./components/Vyhody.astro";
 import AktualizovanyWeb from "./components/AktualizovanyWeb.astro";
 import Portfolio from "./components/Portfolio.astro";
 import Sluzby from "./components/Sluzby.astro";
-import Reference from "./components/Reference.astro";
 import PrehledReferenci from "./components/PrehledReferenci.astro";
+import Kontakt from "./components/Kontakt.astro";
+
+// testovani
+import Tabulka from "./components/Tabulka.astro";
+import UsersTest from "./components/UsersTest.astro";
+//
 const title = "Webové stránky, které Vám přivedou nové zákazníky a ušetří čas";
+const popis =
+	"Rychlý a moderní web, který pracuje za Vás 24/7 a promění návštěvníky ve skutečné poptávky.";
+import responzivni from "../images/responzivni-stranky.png";
+const imageAlt = "Responzivní webové stránky";
 ---
 
 <BaseLayout title={title}>
-	<Hero title={title} />
-	<Vyhody />
-	<AktualizovanyWeb />
-	<Portfolio />
-	<Sluzby />
-	<PrehledReferenci />
+	<Hero
+		hlavniNadpis={title}
+		popis={popis}
+		textClass="heroText"
+		responzivni={responzivni}
+		imageAlt={imageAlt}
+	/>
+	<Container>
+		<Vyhody />
+	</Container>
+	<Container>
+		<AktualizovanyWeb />
+	</Container>
+	<Container>
+		<Portfolio />
+	</Container>
+	<Container>
+		<Sluzby />
+	</Container>
+	<Container>
+		<PrehledReferenci />
+	</Container>
+	<Container>
+		<Kontakt />
+	</Container>
 </BaseLayout>

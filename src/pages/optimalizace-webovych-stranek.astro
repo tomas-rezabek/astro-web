@@ -1,0 +1,22 @@
+---
+import Hero from "./components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../layouts/Container.astro";
+//
+const title = "Optimalizace webových stránek";
+const popis =
+	"Zvyšte viditelnost svého webu ve vyhledávačích a přilákejte více relevantních návštěvníků. Optimalizuji technické nastavení, rychlost načítání, strukturu obsahu i SEO faktory tak, aby váš web dosahoval lepších pozic a vyšší konverznosti.";
+import responzivni from "../images/responzivni-stranky.png";
+const imageAlt = "Optimalizace webových stránek";
+---
+
+<BaseLayout title={title}>
+	<Hero
+		hlavniNadpis={title}
+		popis={popis}
+		textClass="heroLong"
+		responzivni={responzivni}
+		imageAlt={imageAlt}
+		displayStatus="none"
+	/>
+</BaseLayout>
