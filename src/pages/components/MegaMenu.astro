@@ -14,9 +14,9 @@ const tags = [
 ---
 
 <style>
-  h3 {
-    margin: 0;
-  }
+	h3 {
+		margin: 0;
+	}
 	#dropdown-link {
 		text-decoration: none;
 		font-size: 1.2rem;
@@ -85,13 +85,20 @@ const tags = [
 	.megamenu-column {
 		background-color: #513690;
 		border-radius: 16px;
-		padding: 0.15rem 3.6rem;
+		padding: 0.15rem 1rem;
 		margin: 1rem 0;
 		cursor: pointer;
 	}
 
 	.megamenu-column:hover {
 		background-color: var(--modra);
+	}
+
+	.megamenu-column-content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
 	}
 
 	.dropdown {
@@ -119,9 +126,8 @@ const tags = [
 		white-space: nowrap;
 	}
 	.megamenu-icon {
-		width: 45px;
-		height: 45px;
-		background-color: #8b5cf6;
+		width: 28px;
+		height: 28px;
 		color: white;
 		display: flex;
 		align-items: center;
@@ -161,7 +167,12 @@ const tags = [
 			<div class="megamenu-row">
 				<a href="/tvorba-webovych-stranek">
 					<div class="megamenu-column">
-						<h4>Tvorba webu</h4>
+						<div class="megamenu-column-content">
+							<div class="megamenu-icon">
+								<Icon name="jednoduchost" size="32" />
+							</div>
+							<h4>Tvorba webu</h4>
+						</div>
 					</div>
 				</a>
 				<a href="/sprava-webovych-stranek">
@@ -170,12 +181,22 @@ const tags = [
 							<Icon name="rychlost" size="32" />
 						</div> -->
 
-						<h4>Správa služeb</h4>
+						<div class="megamenu-column-content">
+							<div class="megamenu-icon">
+								<Icon name="bezpecnost" size="32" />
+							</div>
+							<h4>Správa služeb</h4>
+						</div>
 					</div>
 				</a>
 				<a href="/optimalizace-webovych-stranek">
 					<div class="megamenu-column">
-						<h4>Optimalizace webu</h4>
+						<div class="megamenu-column-content">
+							<div class="megamenu-icon">
+								<Icon name="rychlost" size="32" />
+							</div>
+							<h4>Optimalizace webu</h4>
+						</div>
 					</div>
 				</a>
 			</div>
