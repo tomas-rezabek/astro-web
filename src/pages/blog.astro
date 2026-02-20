@@ -1,13 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "./components/BlogPost.astro";
+const vsechnyPrispevky = Object.values(
+	import.meta.glob("./posts/*.md", { eager: true }),
+);
 const pageTitle = "Blog";
 ---
 
 <BaseLayout title={pageTitle} classValue="pageContainer">
 	<h1>{pageTitle}</h1>
+	<p>Content of all of the posts</p>
 	<ul>
-		<li><a href="/posts/post-1/">Post 1</a></li>
-		<li><a href="/posts/post-2/">Post 2</a></li>
-		<li><a href="/posts/post-3/">Post 3</a></li>
+		{
+			vsechnyPrispevky.map((prispevek: any) => (
+				<BlogPost url={prispevek.url} title={prispevek.frontmatter.title} />
+			))
+		}
 	</ul>
 </BaseLayout>
