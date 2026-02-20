@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/MarkDownLayout.astro
 title: Můj čtvrtý Blog Post
+slug: fourth-post
 author: Tom
 description: "Tenhle příspěvek se ukáže automaticky"
 image:

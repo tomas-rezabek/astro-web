@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "./components/BlogPost.astro";
-const vsechnyPrispevky = Object.values(
-	import.meta.glob("./posts/*.md", { eager: true }),
-);
+
+import { getCollection } from "astro:content";
+
+const vsechnyPrispevky = await getCollection("blog");
+
 const pageTitle = "Blog";
 ---
 
@@ -12,8 +14,8 @@ const pageTitle = "Blog";
 	<p>Content of all of the posts</p>
 	<ul>
 		{
-			vsechnyPrispevky.map((prispevek: any) => (
-				<BlogPost url={prispevek.url} title={prispevek.frontmatter.title} />
+			vsechnyPrispevky.map((prispevek) => (
+				<BlogPost url={prispevek.id} title={prispevek.data.title} />
 			))
 		}
 	</ul>

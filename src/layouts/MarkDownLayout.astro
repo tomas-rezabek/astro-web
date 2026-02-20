@@ -1,20 +1,50 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Container from "./Container.astro";
+
+interface Frontmatter {
+	title: string;
+	author: string;
+	slug: string;
+	date?: string;
+}
+
 const { frontmatter } = Astro.props;
+const vsechnyPrispevky = Object.values(
+	import.meta.glob<{ frontmatter: Frontmatter }>("../pages/posts/*.md", {
+		eager: true,
+	}),
+);
+const ostatniPrispevky = vsechnyPrispevky.filter(
+	(prispevek) => prispevek.frontmatter.slug !== frontmatter.slug,
+);
 ---
 
 <style>
 	.blogContainer {
-		padding: 5rem 0;
+		background-color: var(--bila);
+		padding: 2rem;
+		border-radius: 32px;
 	}
 </style>
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title={frontmatter.title} classValue="pageContainer">
 	<Container>
+		<h1>{frontmatter.title}</h1>
+		<p>Napsal {frontmatter.author}</p>
 		<div class="blogContainer">
-			<h1>{frontmatter.title}</h1>
-			<p>Napsal {frontmatter.author}</p>
 			<slot />
 		</div>
+		<p>Ostantí příspěvky</p>
+		<ul>
+			{
+				ostatniPrispevky.map((prispevek) => (
+					<li>
+						<a href={`/posts/${prispevek.frontmatter.slug}`}>
+							{prispevek.frontmatter.title}
+						</a>
+					</li>
+				))
+			}
+		</ul>
 	</Container>
 </BaseLayout>
