@@ -18,6 +18,11 @@ const ostatniPrispevky = vsechnyPrispevky.filter(
 		padding: 2rem;
 		border-radius: 32px;
 	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
 </style>
 <BaseLayout title={frontmatter.title} classValue="pageContainer">
 	<Container>
@@ -28,14 +33,21 @@ const ostatniPrispevky = vsechnyPrispevky.filter(
 			<slot />
 		</div>
 		<p>Ostatní příspěvky</p>
-		<ul>
-			{
-				ostatniPrispevky.map((prispevek) => (
-					<li>
-						<a href={`/blog/${prispevek.id}`}>{prispevek.data.title}</a>
-					</li>
-				))
-			}
-		</ul>
+			<ul>
+				{
+					ostatniPrispevky.map((prispevek) => (
+						<li>
+							<a href={`/blog/${prispevek.id}`}>
+								<img
+									src={prispevek.data.image.url}
+									width="300"
+									alt={prispevek.data.image.alt}
+								/>
+								{prispevek.data.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
 	</Container>
 </BaseLayout>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+
+import { getCollection } from "astro:content";
+
+const vsechnyPrispevky = await getCollection("wordpress");
+
+const pageTitle = "WordPress";
+---
+
+<BaseLayout title={pageTitle} classValue="pageContainer">
+	<h1>{pageTitle}</h1>
+	<p>Content of all of the posts</p>
+	<ul>
+		{
+			vsechnyPrispevky.map((prispevek) => (
+				<BlogPost url={`/wordpress/${prispevek.data.slug}/`} title={prispevek.data.title} />
+			))
+		}
+	</ul>
+</BaseLayout>

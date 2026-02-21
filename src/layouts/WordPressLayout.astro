@@ -1,0 +1,58 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Container from "./Container.astro";
+import Card from "../pages/components/Card.astro";
+import { getCollection } from "astro:content";
+
+const { frontmatter } = Astro.props;
+
+const vsechnyPrispevky = await getCollection("wordpress");
+
+const ostatniPrispevky = vsechnyPrispevky.filter(
+	(prispevek) => prispevek.data.slug !== frontmatter.slug,
+);
+---
+
+<style>
+	.blogContainer :global(img) {
+		width: 100%;
+		height: auto;
+		display: block; /* avoids inline baseline weirdness */
+	}
+	.blogContainer :global(p) {
+		font-weight: 400;
+	}
+	.blogContainer {
+		background-color: var(--bila);
+		padding: 2rem;
+		border-radius: 32px;
+		overflow: hidden;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+
+<BaseLayout title={frontmatter.title} classValue="pageContainer">
+	<Container>
+		<div class="blogContainer">
+			<h1>{frontmatter.title}</h1>
+			<p>Napsal {frontmatter.author}</p>
+			<slot />
+		</div>
+		<h3>Ostatní příspěvky</h3>
+		<ul>
+			{
+				ostatniPrispevky.map((prispevek) => (
+					<li>
+						<a href={`/wordpress/${prispevek.data.slug}`}>
+							{prispevek.data.title}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</Container>
+</BaseLayout>

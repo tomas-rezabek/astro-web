@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from "astro:content";
+import WordPressLayout from "../../layouts/WordPressLayout.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("wordpress");
+	return posts.map((post) => ({
+		params: { slug: post.data.slug },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+---
+<WordPressLayout frontmatter={post.data}>
+	<div set:html={post.data.content} />
+</WordPressLayout>
