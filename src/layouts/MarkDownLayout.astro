@@ -21,6 +21,7 @@ const ostatniPrispevky = vsechnyPrispevky.filter(
 </style>
 <BaseLayout title={frontmatter.title} classValue="pageContainer">
 	<Container>
+		<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
 		<h1>{frontmatter.title}</h1>
 		<p>Napsal {frontmatter.author}</p>
 		<div class="blogContainer">
