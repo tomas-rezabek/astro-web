@@ -15,7 +15,7 @@ const pageTitle = "Blog";
 	<ul>
 		{
 			vsechnyPrispevky.map((prispevek) => (
-				<BlogPost url={`/posts/${prispevek.id}/`} title={prispevek.data.title} />
+				<BlogPost url={`/blog/${prispevek.id}/`} title={prispevek.data.title} />
 			))
 		}
 	</ul>
