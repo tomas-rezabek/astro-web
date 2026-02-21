@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkDownLayout.astro
 title: 'Můj první blog post'
 slug: first-post
 pubDate: 2022-07-01

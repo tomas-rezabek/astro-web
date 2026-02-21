@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkDownLayout.astro
 title: My Third Blog Post
 slug: third-post
 author: Astro Learner

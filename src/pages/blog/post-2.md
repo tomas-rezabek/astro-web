@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkDownLayout.astro
 title: My Second Blog Post
 slug: second-post
 author: Astro Learner

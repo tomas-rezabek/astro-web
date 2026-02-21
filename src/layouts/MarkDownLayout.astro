@@ -1,22 +1,14 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Container from "./Container.astro";
-
-interface Frontmatter {
-	title: string;
-	author: string;
-	slug: string;
-	date?: string;
-}
+import { getCollection } from "astro:content";
 
 const { frontmatter } = Astro.props;
-const vsechnyPrispevky = Object.values(
-	import.meta.glob<{ frontmatter: Frontmatter }>("../pages/posts/*.md", {
-		eager: true,
-	}),
-);
+
+const vsechnyPrispevky = await getCollection("blog");
+
 const ostatniPrispevky = vsechnyPrispevky.filter(
-	(prispevek) => prispevek.frontmatter.slug !== frontmatter.slug,
+	(prispevek) => prispevek.id !== frontmatter.slug,
 );
 ---
 
@@ -34,14 +26,12 @@ const ostatniPrispevky = vsechnyPrispevky.filter(
 		<div class="blogContainer">
 			<slot />
 		</div>
-		<p>Ostantí příspěvky</p>
+		<p>Ostatní příspěvky</p>
 		<ul>
 			{
 				ostatniPrispevky.map((prispevek) => (
 					<li>
-						<a href={`/posts/${prispevek.frontmatter.slug}`}>
-							{prispevek.frontmatter.title}
-						</a>
+						<a href={`/posts/${prispevek.id}`}>{prispevek.data.title}</a>
 					</li>
 				))
 			}
