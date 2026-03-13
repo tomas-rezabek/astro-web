@@ -1,0 +1,60 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const res = await fetch(
+  "https://wp.t4c.cz/wp-json/wp/v2/posts?_embed&_fields=title,excerpt,featured_media,_links,_embedded",
+);
+const prispevky = await res.json();
+---
+
+<style>
+  .imageWrapper {
+    display: flex;
+    gap: 25px;
+    background-color: var(--bila);
+    margin: 2rem 0;
+    border-radius: 32px;
+    overflow: auto;
+    height: 300px;
+  }
+  .imageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .podNadpis {
+    font-size: 24px;
+    margin: 0px;
+  }
+  .podText {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+</style>
+
+<BaseLayout classValue="pageContainer">
+  {
+    prispevky.map((prispevek) => {
+      const media = prispevek._embedded?.["wp:featuredmedia"]?.[0];
+      const imgUrl = media?.media_details?.sizes.thumbnail.source_url;
+
+      return (
+        <div class="imageWrapper">
+          <img
+            src={imgUrl}
+            alt={media?.alt_text ?? "Placeholder"}
+            height="100%"
+            width="200px"
+            loading="lazy"
+          />
+          <div class="imageContent">
+            <h2 class="podNadpis" set:html={prispevek.title.rendered ?? ""} />
+            <div class="podText" set:html={prispevek.excerpt.rendered ?? ""} />
+          </div>
+        </div>
+      );
+    })
+  }
+</BaseLayout>
