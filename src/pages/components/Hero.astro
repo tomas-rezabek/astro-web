@@ -1,124 +1,155 @@
 ---
+import { Breadcrumbs } from "astro-breadcrumbs";
+
+
 import Hodnoceni from "./Hodnoceni.astro";
 import Image from "astro/components/Image.astro";
-const { hlavniNadpis, popis, responzivni, displayStatus, imageAlt, textClass } = Astro.props;
+const { hlavniNadpis, popis, responzivni, displayStatus, imageAlt, textClass } =
+  Astro.props;
 import heroBg from "../../images/tvorba-webovych-stranek-pozadi.png";
+
+
+const customList = [
+  { index: 0, text: "Domů" },
+  {
+	index: 1,
+    "data-link": "tvorba-webovych-stranek",
+    "aria-label": "Tvorba webových stránek",
+    text: `${hlavniNadpis}`,
+  } 
+];
+
 ---
 
 <style>
-	.hlavniNadpis {
-		font-size: 2.8rem;
-	}
-	.heroSekce {
-		width: 100%;
-		max-width: 1540px;
-		margin-inline: auto;
-		height: 720px;
-		border-radius: 32px;
-		background: linear-gradient(#8b5cf699, #513690), var(--hero-bg);
-		background-repeat: no-repeat;
-		background-size: cover;
-		display: flex;
-		align-items: center;
-	}
+  .hlavniNadpis {
+    font-size: 2.8rem;
+  }
+  .heroSekce {
+    width: 100%;
+    max-width: 1540px;
+    margin-inline: auto;
+    height: 720px;
+    border-radius: 32px;
+    background: linear-gradient(#8b5cf699, #513690), var(--hero-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
 
-	.heroObsah {
-		display: flex;
-		width: 1140px;
-		margin: auto;
-		color: var(--bila);
-	}
+  .heroObsah {
+    display: flex;
+    width: 1140px;
+    margin: auto;
+    color: var(--bila);
+  }
 
-	.heroLeft {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: left;
-	}
+  .heroLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
 
-	.heroRight {
-		display: flex;
-		justify-content: left;
-		align-items: center;
-	}
+  .heroRight {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
 
-	.heroRight img {
-		rotate: 20deg;
-	}
+  .heroRight img {
+    rotate: 20deg;
+  }
 
-	.heroText {
-		text-align: left;
-		font-size: 1.3rem;
-		font-weight: 300;
-		max-width: 480px;
-	}
+  .heroText {
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 480px;
+  }
 
-	.heroLong {
-		text-align: left;
-		font-size: 1.3rem;
-		font-weight: 300;
-	}
+  .heroLong {
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
 
-	.heroTlacitka {
-		margin-top: 3rem;
-	}
+  .heroTlacitka {
+    margin-top: 3rem;
+  }
 
-	.heroTlacitka a {
-		text-decoration: none;
-		font-size: 1.25rem;
-		padding: 1rem 3rem;
-		border-radius: 32px;
-		border: 1px solid --bila;
-		transition: all 0.25s ease;
-	}
+  .heroTlacitka a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
+    border-radius: 32px;
+    border: 1px solid --bila;
+    transition: all 0.25s ease;
+  }
 
-	.heroTlacitka a:hover {
-		font-size: 1.3rem;
-	}
+  .heroTlacitka a:hover {
+    font-size: 1.3rem;
+  }
 
-	.konzultaceTlacitko {
-		background-color: var(--bila);
-		color: var(--modra);
-		margin-right: 2rem;
-	}
+  .konzultaceTlacitko {
+    background-color: var(--bila);
+    color: var(--modra);
+    margin-right: 2rem;
+  }
 
-	.telefonTlacitko {
-		background-color: var(--fialova);
-		color: var(--bila);
-	}
+  .telefonTlacitko {
+    background-color: var(--fialova);
+    color: var(--bila);
+  }
 </style>
 
 <div class="heroSekce" style={`--hero-bg: url(${heroBg.src});`}>
-	<div class="heroObsah">
-		<div class="heroLeft">
-			<h1 class="hlavniNadpis">
-				{hlavniNadpis}
-			</h1>
-			<div class="heroContainer">
-				<p class={textClass}>
-					{popis}
-				</p>
-				<div class="heroTlacitka">
-					<a href="/konzultace-zdarma" class="konzultaceTlacitko"
-						>Konzultace zdarma</a
-					>
-					<a
-						href="tel:+420737645533"
-						class="telefonTlacitko"
-						style={`display: ${displayStatus};`}>+420 737 645 533</a
-					>
-				</div>
-			</div>
-		</div>
-		<div class="heroRight" style={`display: ${displayStatus};`}>
-			<Image
-				src={responzivni}
-				alt={imageAlt}
-				width="330"
-				loading="eager"
-				fetchpriority="high"
-			/>
-		</div>
-	</div>
+  <div class="heroObsah">
+    <div class="heroLeft">
+      <Breadcrumbs separatorAriaHidden={false} customizeLinks={customList}>
+        <svg
+          slot="separator"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </Breadcrumbs>
+      <h1 class="hlavniNadpis">
+        {hlavniNadpis}
+      </h1>
+      <div class="heroContainer">
+        <p class={textClass}>
+          {popis}
+        </p>
+        <div class="heroTlacitka">
+          <a href="/konzultace-zdarma" class="konzultaceTlacitko"
+            >Konzultace zdarma</a
+          >
+          <a
+            href="tel:+420737645533"
+            class="telefonTlacitko"
+            style={`display: ${displayStatus};`}>+420 737 645 533</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="heroRight" style={`display: ${displayStatus};`}>
+      <Image
+        src={responzivni}
+        alt={imageAlt}
+        width="330"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
 </div>
 <Hodnoceni />
