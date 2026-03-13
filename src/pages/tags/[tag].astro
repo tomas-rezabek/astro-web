@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+export async function getStaticPaths() {
+	const vsechnyPrispevky = Object.values(
+		import.meta.glob("../posts/*.md", { eager: true }),
+	);
+	return [
+		{ params: { tag: "astro" }, props: { prispevky: vsechnyPrispevky } },
+		{ params: { tag: "successes" }, props: { prispevky: vsechnyPrispevky } },
+		{ params: { tag: "community" }, props: { prispevky: vsechnyPrispevky } },
+		{ params: { tag: "blogging" }, props: { prispevky: vsechnyPrispevky } },
+		{ params: { tag: "setbacks" }, props: { prispevky: vsechnyPrispevky } },
+		{
+			params: { tag: "learning in public" },
+			props: { prispevky: vsechnyPrispevky },
+		},
+	];
+}
+
+const { tag } = Astro.params;
+const { prispevky } = Astro.props;
+const filtrovanePrispevky = prispevky.filter((prispevek: any) =>
+	prispevek.frontmatter.tags?.includes(tag),
+);
+---
+
+<BaseLayout title={tag} classValue="pageContainer">
+	<p>Příspěvky se štítkem {tag}</p>
+  <ul>
+    {filtrovanePrispevky.map((prispevek: any) => <BlogPost url={prispevek.url} title={prispevek.frontmatter.title}/>)}
+  </ul>
+</BaseLayout>

@@ -1,5 +1,5 @@
 ---
-const { title, iconName, iconSize, content } = Astro.props;
+const { title, url, iconName, iconSize, content } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
 
@@ -57,14 +57,16 @@ import { Icon } from "astro-icon/components";
 		flex-shrink: 0;
 	}
 </style>
-<div class="cardWrap card-item">
-	<div class="cardContent">
-		<div class="cardTitle">
-			<div class="cardIcon">
-				{iconName && <Icon name={iconName} size={iconSize} />}
+<a href={url}>
+	<div class="cardWrap card-item">
+		<div class="cardContent">
+			<div class="cardTitle">
+				<div class="cardIcon">
+					{iconName && <Icon name={iconName} size={iconSize} />}
+				</div>
+				<h2>{title}</h2>
 			</div>
-			<h2>{title}</h2>
+			<p class="cardDescription">{content}</p>
 		</div>
-		<p class="cardDescription">{content}</p>
 	</div>
-</div>
+</a>
