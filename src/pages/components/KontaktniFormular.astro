@@ -40,17 +40,36 @@
 </style>
 
 <div class="formularWrapper">
-	<form action="#" method="POST">
+	<form action="https://turboalex.eu/submitter.php" method="POST">
 		<div class="column">
 			<div class="row">
-				<input type="text" class="name" placeholder="Jméno a příjmení" />
-				<input type="email" placeholder="E-mail" />
+				<input
+					type="text"
+					name="name"
+					class="name"
+					placeholder="Jméno a příjmení"
+				/>
+				<input type="email" name="email" placeholder="E-mail" />
 			</div>
 			<div class="row">
-				<input type="text" class="phoneNumber" placeholder="Telefonní číslo" />
+				<input
+					type="text"
+					name="phone"
+					class="phoneNumber"
+					placeholder="Telefonní číslo"
+				/>
+			</div>
+			<div style="position:absolute;left:-9999px;" aria-hidden="true">
+				<label
+					>Company <input
+						name="company"
+						tabindex="-1"
+						autocomplete="off"
+					/></label
+				>
 			</div>
 			<div class="row">
-				<textarea name="zprava" id="zprava" placeholder="Zpráva" rows="5"
+				<textarea name="message" id="zprava" placeholder="Zpráva" rows="5"
 				></textarea>
 			</div>
 			<button type="submit" class="odeslat">Odeslat zprávu</button>
