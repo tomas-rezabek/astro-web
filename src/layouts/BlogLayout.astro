@@ -1,0 +1,87 @@
+---
+import Image from "astro/components/Image.astro";
+import Container from "./Container.astro";
+import { navigace } from "../config/navigace.astro";
+
+import "../pages/styles/global.css";
+import { late } from "astro:schema";
+
+const { title, classValue } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"
+    ></script>
+    <title>{title}</title>
+  </head>
+<style>
+    .sidebarContainer {
+        display: flex;
+        flex-direction: row;
+        height: 600px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul li {
+        padding: 1rem;
+        background-color: blue;
+        margin: 0rem 0;
+    }
+    .link {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--bila);
+        font-weight: 400;
+    }
+    .left {
+        background-color: red;
+        height: 100%;
+        border-radius: 32px;
+        overflow: auto;
+    }
+    .right {
+        background-color: var(--bila);
+        border-radius: 32px;
+        padding: 2rem;
+        margin: 2rem;
+        height: 400px;
+    }
+</style>
+  <body class="page">
+    <main class={classValue}>
+    <Container>
+      <div class="sidebarContainer">
+        <aside class="left">
+            <ul>
+                {navigace.map((odkaz) => (
+                <li><a href={odkaz.href} class="link">{odkaz.nazev}</a></li>
+                ))}
+            </ul>
+        </aside>
+        <div class="right content">
+          <slot />
+        </div>
+      </div>
+      </Container>
+    </main>
+    <script>
+      import "../pages/scripts/navbar.js";
+    </script>
+  </body>
+</html>
